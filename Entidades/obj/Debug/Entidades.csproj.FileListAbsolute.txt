@@ -1,0 +1,6 @@
+C:\Users\Larco Bike\source\repos\BicilandiaProject\Entidades\bin\Debug\Entidades.dll
+C:\Users\Larco Bike\source\repos\BicilandiaProject\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Larco Bike\source\repos\BicilandiaProject\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\Larco Bike\source\repos\BicilandiaProject\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Larco Bike\source\repos\BicilandiaProject\Entidades\obj\Debug\Entidades.dll
+C:\Users\Larco Bike\source\repos\BicilandiaProject\Entidades\obj\Debug\Entidades.pdb

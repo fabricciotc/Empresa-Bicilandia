@@ -1,0 +1,17 @@
+﻿<Window x:Class="Presentacion.ListaClientes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentacion"
+        mc:Ignorable="d"
+        Title="ListaClientes" Height="768" Width="1360" WindowStartupLocation="CenterScreen" Icon="https://fotos.subefotos.com/adcfb97e2f09f111e1e05853d75d8a57o.png" Background="Black" Visibility="Visible" WindowState="Maximized">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="https://fotos.subefotos.com/d8ba74ccad74406193b085649da6e53fo.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <DataGrid x:Name="CLienteDT" HorizontalAlignment="Left" Height="507" Margin="47,138,0,0" VerticalAlignment="Top" Width="822" IsReadOnly="True"/>
+        <Label x:Name="Lista" Content="Listado de Clientes" HorizontalAlignment="Left" Margin="50,42,0,0" VerticalAlignment="Top" Height="74" Width="464" FontSize="48" Foreground="White" FontWeight="Bold"/>
+
+    </Grid>
+</Window>

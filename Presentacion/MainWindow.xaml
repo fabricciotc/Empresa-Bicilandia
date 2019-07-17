@@ -1,0 +1,47 @@
+﻿<Window x:Class="Presentacion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentacion"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="416.216" Width="779.73" AllowsTransparency="True" WindowStyle="None" Background="Transparent" Icon="https://fotos.subefotos.com/adcfb97e2f09f111e1e05853d75d8a57o.png" 
+    >
+    <Border x:Name="Negro" BorderThickness="5,5,5,5" CornerRadius="40,40,40,40" BorderBrush="#FF111111" Background="#FF111111" Opacity="0.9" Loaded="B_Load">
+        <Grid x:Name="redNegro" Margin="5" Loaded="Grid_Loaded">
+            <Grid Background="#FF111111" IsHitTestVisible="True" Opacity="0.8" MouseDown="Grid_MouseDown" Margin="0,0,15,0" >
+                <Rectangle x:Name="rectUsu" HorizontalAlignment="Left" Height="4" Stroke="Black" VerticalAlignment="Top" Width="222" Margin="451,175,0,0" RadiusX="5" RadiusY="5" Fill="White"/>
+                <TextBox x:Name="Usuario" HorizontalAlignment="Left" Height="30" Margin="451,145,0,0" TextWrapping="Wrap" Text="Usuario" VerticalAlignment="Top" Width="222" Foreground="White" FontFamily="Lato" FontWeight="Light" Background="{x:Null}" FontSize="17" BorderBrush="{x:Null}" SelectionBrush="#FFC9C9C9" FontStretch="SemiExpanded" Cursor="" TextChanged="Usuario_TextChanged" GotFocus="Usuario_GotFocus" BorderThickness="0" LostFocus="Usuario_LostFocus" KeyDown="Usuario_KeyDown" CaretBrush="White">
+                </TextBox>
+                <Rectangle x:Name="rect2" Fill="White" HorizontalAlignment="Left" RadiusY="35.935" RadiusX="35.935" Width="316" Margin="-11,-11,0,-11"/>
+                <Image HorizontalAlignment="Left" Height="211" VerticalAlignment="Top" Width="205" Margin="44,87,0,0" Source="https://fotos.subefotos.com/adcfb97e2f09f111e1e05853d75d8a57o.png"/>
+                <Rectangle x:Name="RecCon" HorizontalAlignment="Left" Height="4" Stroke="Black" VerticalAlignment="Top" Width="222" Margin="451,210,0,0" RadiusX="5" RadiusY="5" Fill="White"/>
+                <PasswordBox x:Name="COntraseña" HorizontalAlignment="Left" Margin="451,184,0,0" VerticalAlignment="Top" Width="187" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Password="Contraseña" Height="26" SelectionBrush="{x:Null}" MouseDown="COntraseña_MouseDown" GotFocus="COntraseña_GotFocus" BorderThickness="0" DataContextChanged="COntraseña_DataContextChanged" LostFocus="COntraseña_LostFocus" PasswordChanged="COntraseña_PasswordChanged" KeyDown="COntraseña_KeyDown" CaretBrush="#FFEAE6E6"/>
+                <Label Content="{}{" HorizontalAlignment="Left" Margin="404,115,0,0" VerticalAlignment="Top" Foreground="White" FontSize="82" FontWeight="Black"/>
+                <Button x:Name="iniciobtn" Content="Iniciar" Background="#FF1E930C" Margin="511,264,0,0" BorderBrush="#FFA2E881" Cursor="Hand" FontSize="15" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Width="75" VerticalAlignment="Top" Height="26" Click="Button_Click" MouseMove="Button_MouseMove" GotFocus="iniciobtn_GotFocus" IsStylusDirectlyOverChanged="iniciobtn_IsStylusDirectlyOverChanged">
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Name="Border"  BorderThickness="2,2,2,2" CornerRadius="4,4,4,4" BorderBrush="#FFA2E881" Background="#FF1E930C">
+                                <ContentPresenter Content="{TemplateBinding Content}"  HorizontalAlignment="Center" VerticalAlignment="Center" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsMouseOver" Value="True">
+                                    <Setter TargetName="Border" Property="Background" Value="#65f556" />
+                                </Trigger>
+                                <Trigger Property="Button.IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#FF083601"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Label Content="Recuerde que solo se cuenta con 3 intentos por cada hora." HorizontalAlignment="Left" Margin="346,74,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <Label Content="En caso falle en mas de los intentos permitidos el sistema" HorizontalAlignment="Left" Margin="346,89,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <Label x:Name="Incorrecto" Content="Usuario y/o contraseña incorrecto" HorizontalAlignment="Left" Margin="452,234,0,0" VerticalAlignment="Top" FontSize="11" Foreground="#FFB81818" Visibility="Hidden" FontWeight="Bold"/>
+                <Image x:Name="Cloase" Source="https://fotos.subefotos.com/24068e778f9ae3c9e8aa24f67f40aa2do.png" Margin="729,9,-2,0" Height="19" VerticalAlignment="Top" MouseDown="Cloase_MouseDown" Cursor="Hand"></Image>
+                <Label Content="bloqueara el ingreso." HorizontalAlignment="Left" Margin="346,104,0,0" VerticalAlignment="Top" Foreground="White"/>
+            </Grid>
+            <Label x:Name="Login1" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="345,10,0,0" Foreground="White" FontSize="44" FontWeight="Bold"/>
+        </Grid>
+    </Border>
+</Window>

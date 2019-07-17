@@ -1,0 +1,144 @@
+﻿<Window x:Class="Presentacion.Reportes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentacion"
+        mc:Ignorable="d"
+        Title="Reportes" Height="768" Width="1360" WindowState="Maximized" Icon="https://fotos.subefotos.com/adcfb97e2f09f111e1e05853d75d8a57o.png" Background="Black">
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="https://fotos.subefotos.com/d8ba74ccad74406193b085649da6e53fo.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Button x:Name="BuscarAnu" Background="#FF1E930C"  BorderBrush="#FFA2E881" Cursor="Hand" FontSize="12" Foreground="White" FontWeight="Bold"  Content="BUSCAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="67" Margin="897,224,0,0" Height="28" Click="AnuClick">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Name="Border"  BorderThickness="2,2,2,2" CornerRadius="4,4,4,4" BorderBrush="#FFA2E881" Background="#FF1E930C">
+                        <ContentPresenter Content="{TemplateBinding Content}"  HorizontalAlignment="Center" VerticalAlignment="Center" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="#65f556" />
+                        </Trigger>
+                        <Trigger Property="Button.IsPressed" Value="True">
+                            <Setter Property="Background" Value="#FF083601"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="500" Margin="82,114,0,0" VerticalAlignment="Top" Width="417" RadiusY="35.154" RadiusX="35.154" Opacity="0.7"/>
+        <Label x:Name="IngresoReport" Content="Ingreso diario por Local" HorizontalAlignment="Left" Margin="79,57,0,0" VerticalAlignment="Top" Height="54" Width="396" Foreground="White" FontSize="30" FontFamily="Nexa ☞" FontWeight="Bold"/>
+        <Label Content="------------------------------------" HorizontalAlignment="Left" Margin="83,136,0,0" VerticalAlignment="Top" Height="58" Width="414" Foreground="#FFA28B8B" FontSize="36" FontFamily="Nexa ☞" Opacity="0.4" Background="#00000000"/>
+        <Label Content="------------------------------------" HorizontalAlignment="Left" Margin="83,188,0,0" VerticalAlignment="Top" Height="58" Width="414" Foreground="#FFA28B8B" FontSize="36" FontFamily="Nexa ☞" Opacity="0.4" Background="#00000000"/>
+        <Label Content="------------------------------------" HorizontalAlignment="Left" Margin="83,250,0,0" VerticalAlignment="Top" Height="58" Width="372" Foreground="#FFA28B8B" FontSize="36" FontFamily="Nexa ☞" Opacity="0.4" Background="#00000000"/>
+        <Label Content="------------------------------------" HorizontalAlignment="Left" Margin="83,319,0,0" VerticalAlignment="Top" Height="58" Width="371" Foreground="#FFA28B8B" FontSize="36" FontFamily="Nexa ☞" Opacity="0.4" Background="#00000000"/>
+        <Label Content="------------------------------------" HorizontalAlignment="Left" Margin="82,395,0,0" VerticalAlignment="Top" Height="58" Width="373" Foreground="#FFA28B8B" FontSize="36" FontFamily="Nexa ☞" Opacity="0.4" Background="#00000000"/>
+        <Label Content="------------------------------------" HorizontalAlignment="Left" Margin="81,468,0,0" VerticalAlignment="Top" Height="58" Width="413" Foreground="#FFA28B8B" FontSize="36" FontFamily="Nexa ☞" Opacity="0.4" Background="#00000000"/>
+        <Label Content="------------------------------------" HorizontalAlignment="Left" Margin="79,535,0,0" VerticalAlignment="Top" Height="58" Width="413" Foreground="#FFA28B8B" FontSize="36" FontFamily="Nexa ☞" Opacity="0.4" Background="#00000000"/>
+        <ItemsControl ItemsSource="{Binding}" Margin="102,159,865,42">
+
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="10,10,10,80" VerticalAlignment="Bottom">
+                        <Border Name="br" Margin="3,10,3,10"  CornerRadius="5" 
+                                Background="{Binding Color}"
+                                Width="34" BorderBrush="{Binding Color}"  
+                                BorderThickness="3" 
+                                Height="{Binding Data}">
+                            <Border.Triggers>
+                                <EventTrigger RoutedEvent="Border.Loaded">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation From="0"  
+                                                             Storyboard.TargetName="br" 
+                                 Storyboard.TargetProperty="(FrameworkElement.Height)" 
+                                                              Duration="0:0:02.0">
+
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Border.Triggers>
+                        </Border>
+                        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" 
+                                   FontFamily="Latha" Text="{Binding Number}" Foreground="#FF060606" FontSize="11" >
+                            <TextBlock.RenderTransform>
+                                <TranslateTransform Y="-30"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                        <TextBlock HorizontalAlignment="Center" Foreground="{Binding Color}"
+                                   FontWeight="Bold" FontFamily="Latha" 
+                                   Text="{Binding Name}">
+                            <TextBlock.RenderTransform>
+                                <TranslateTransform Y="-20"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+        </ItemsControl>
+
+        <Label Content="LOCALES DE BICILANDIA EN DISTINTOS DISTRITOS" HorizontalAlignment="Left" Margin="129,575,0,0" VerticalAlignment="Top" Height="33" Width="326" Foreground="White" FontSize="14" Opacity="0.38"/>
+        <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="appbar_refresh" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0" Margin="448,100,863,567">
+            <Path x:Name="Actualizar" Width="15.306" Height="18.09" Canvas.Left="16" Canvas.Top="30.613" Stretch="Fill" Fill="White" Data="F1 M 38,20.5833C 42.9908,20.5833 47.4912,22.6825 50.6667,26.046L 50.6667,17.4167L 55.4166,22.1667L 55.4167,34.8333L 42.75,34.8333L 38,30.0833L 46.8512,30.0833C 44.6768,27.6539 41.517,26.125 38,26.125C 31.9785,26.125 27.0037,30.6068 26.2296,36.4167L 20.6543,36.4167C 21.4543,27.5397 28.9148,20.5833 38,20.5833 Z M 38,49.875C 44.0215,49.875 48.9963,45.3932 49.7703,39.5833L 55.3457,39.5833C 54.5457,48.4603 47.0852,55.4167 38,55.4167C 33.0092,55.4167 28.5088,53.3175 25.3333,49.954L 25.3333,58.5833L 20.5833,53.8333L 20.5833,41.1667L 33.25,41.1667L 38,45.9167L 29.1487,45.9167C 31.3231,48.3461 34.483,49.875 38,49.875 Z " Cursor="Hand" Opacity="0.4" MouseDown="Actualizar_MouseDown_1"/>
+        </Canvas>
+        <TextBlock  Text="   INGRESOS EN: S/ (SOLES PERUANOS)" Margin="466,227,0,0"  Height="23" Width="258" Foreground="White" FontSize="14" Opacity="0.38" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock.LayoutTransform>
+                <RotateTransform Angle="-90"/>
+            </TextBlock.LayoutTransform>
+        </TextBlock>
+        <Label x:Name="Time" Content="Ultima actualizacion a las:" HorizontalAlignment="Left" Margin="100,125,0,0" VerticalAlignment="Top" Height="32" Width="322" Foreground="White" Opacity="0.4" FontSize="14"/>
+        <Rectangle Fill="#FF005720" HorizontalAlignment="Left" Height="63" Margin="579,49,0,0" VerticalAlignment="Top" Width="409" RadiusY="35.154" RadiusX="35.154" Opacity="0.7"/>
+        <Label Content="Observaciones por Punto" HorizontalAlignment="Left" Margin="595,59,0,0" VerticalAlignment="Top" Height="54" Width="386" Foreground="White" FontSize="30" FontFamily="Nexa ☞" FontWeight="Bold"/>
+        <Rectangle Fill="#FF971711" HorizontalAlignment="Left" Height="47" Margin="583,150,0,0" VerticalAlignment="Top" Width="236" RadiusY="17.839" RadiusX="17.839" Opacity="0.7"/>
+        <Label Content="Anulaciones por Punto" HorizontalAlignment="Left" Margin="592,159,0,0" VerticalAlignment="Top" Height="30" Width="221" Foreground="White" FontSize="19" FontFamily="Nexa ☞" FontWeight="Bold"/>
+        <Rectangle Fill="#FF115497" HorizontalAlignment="Left" Height="47" Margin="586,273,0,0" VerticalAlignment="Top" Width="255" RadiusY="17.839" RadiusX="17.839" Opacity="0.7"/>
+        <Label Content="Sobretiempo de Clientes" HorizontalAlignment="Left" Margin="590,280,0,0" VerticalAlignment="Top" Height="30" Width="250" Foreground="White" FontSize="19" FontFamily="Nexa ☞" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.03"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <DatePicker x:Name="Anu1" Text="FECHA INICIO" HorizontalAlignment="Left" Margin="588,226,0,0" VerticalAlignment="Top" Width="143"/>
+        <DatePicker x:Name="Anu2" Text="FECHA FIN" HorizontalAlignment="Left" Margin="741,226,0,0" VerticalAlignment="Top" Width="143"/>
+        <DatePicker x:Name="Sobre1" Text="FECHA INICIO" HorizontalAlignment="Left" Margin="588,339,0,0" VerticalAlignment="Top" Width="143"/>
+        <DatePicker x:Name="Sobre2" Text="FECHA FIN" HorizontalAlignment="Left" Margin="741,339,0,0" VerticalAlignment="Top" Width="143"/>
+        <Button x:Name="BuscarSobre" Background="#FF1E930C"  BorderBrush="#FFA2E881" Cursor="Hand" FontSize="12" Foreground="White" FontWeight="Bold"  Content="BUSCAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="67" Margin="897,335,0,0" Height="28" Click="SobreClick">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border"  BorderThickness="2,2,2,2" CornerRadius="4,4,4,4" BorderBrush="#FFA2E881" Background="#FF1E930C">
+                        <ContentPresenter Content="{TemplateBinding Content}"  HorizontalAlignment="Center" VerticalAlignment="Center" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="#65f556" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="#FF083601"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="appbar_navigate_next" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0" Margin="1176,42,104,623" MouseDown="Path_MouseDown">
+            <Path Width="18.966" Height="21.99" Canvas.Left="29.017" Canvas.Top="26.618" Stretch="Fill" Fill="White" Data="F1 M 42.3542,38L 26.5208,53.8333L 37.2083,53.8333L 53.8333,38L 37.2083,22.1667L 26.5208,22.1667L 42.3542,38 Z " Cursor="Hand"/>
+        </Canvas>
+        <Label x:Name="Local" Content="CAMPO MARTE" HorizontalAlignment="Left" Margin="1018,63,0,0" VerticalAlignment="Top" Height="35" Width="187" Foreground="White" FontSize="22" FontFamily="Nexa ☞" FontWeight="Bold"/>
+        <Label x:Name="Anulaciones" Content="Cantidad: " HorizontalAlignment="Left" Margin="980,223,0,0" VerticalAlignment="Top" Height="32" Width="154" Foreground="White" FontSize="19" FontFamily="Nexa ☞" FontWeight="Bold"/>
+        <Canvas x:Name="NextIngreso" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0" Margin="450,42,830,623" MouseDown="Path2_MouseDown">
+            <Path Width="18.966" Height="21.99" Canvas.Left="29.017" Canvas.Top="26.618" Stretch="Fill" Fill="White" Data="F1 M 42.3542,38L 26.5208,53.8333L 37.2083,53.8333L 53.8333,38L 37.2083,22.1667L 26.5208,22.1667L 42.3542,38 Z " Cursor="Hand"/>
+        </Canvas>
+    </Grid>
+</Window>
